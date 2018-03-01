@@ -1,0 +1,18 @@
+deck = [];
+suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
+faces = ["J", "Q", "K", "A"]
+
+for s in range(4): #iterate over suits
+	for i in range(2, 11):
+  		deck.append("%s %s" %(str(i), suits[s]))
+  #generates number cards
+	for i in range(4):
+  		deck.append("%s %s" %(faces[i], suits[s]))
+	#generates face cards
+print deck #optional
+
+#now we have a full 52-card deck
+#0-12 are spades
+#13-25 are hearts
+#26-38 are diamonds
+#39-51 are clubs
