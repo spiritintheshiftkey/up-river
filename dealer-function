@@ -1,3 +1,4 @@
+import random
 deck = [];
 suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
 faces = ["J", "Q", "K", "A"]
@@ -16,3 +17,19 @@ print deck #optional
 #13-25 are hearts
 #26-38 are diamonds
 #39-51 are clubs
+def draw(k):
+  if k > 6:
+    print "Error: draw at most six cards"
+  elif k < 1:
+    print "Error: draw at least one card"
+  else:
+  	card_list = random.sample(range(0,52), 2*k+1)
+  	yours = card_list[0:k+1]
+  	theirs = card_list[k+1:2*k+1]
+  	face_up = card_list[2*k+1]
+  	print yours
+	print face_up
+  
+  #not quite working yet
+
+draw(5)
