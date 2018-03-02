@@ -17,6 +17,9 @@ print deck #optional
 #13-25 are hearts
 #26-38 are diamonds
 #39-51 are clubs
+yours = []
+theirs = []
+face_up = []
 def draw(k):
   if k > 6:
     print "Error: draw at most six cards"
@@ -24,19 +27,18 @@ def draw(k):
     print "Error: draw at least one card"
   else:
   	card_list = random.sample(range(0,52), 2*k+1)
-  	yours_ind = sorted(card_list[0:k+1])
-  	theirs_ind = sorted(card_list[k+1:2*k+1])
+  	yours_ind = sorted(card_list[0:k])
+  	theirs_ind = sorted(card_list[k:2*k])
   	face_up_ind = card_list[2*k]
-  yours = []
-  theirs = []
-  face_up = []
-  for i in range(0, k+1):
-  	yours.append(deck[yours_ind[i]])
-  print yours
-  for j in range(0, k+1):
-  	theirs.append(deck[theirs_ind[j]])
-  print theirs
-  
-  #not quite working yet
+    #optional:
+  	#print card_list
+  	for i in range(0, k):
+  		yours.append(deck[yours_ind[i]])
+  	print "your hand: %s" %(yours)
+  	for i in range(0, k):
+  		theirs.append(deck[theirs_ind[i]])
+  	print "face up: %s" %(deck[face_up_ind])
+  	return theirs
 
-draw(5)
+draw(2)
+#print theirs
