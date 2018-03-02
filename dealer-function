@@ -24,11 +24,18 @@ def draw(k):
     print "Error: draw at least one card"
   else:
   	card_list = random.sample(range(0,52), 2*k+1)
-  	yours = card_list[0:k+1]
-  	theirs = card_list[k+1:2*k+1]
-  	face_up = card_list[2*k+1]
-  	print yours
-	print face_up
+  	yours_ind = sorted(card_list[0:k+1])
+  	theirs_ind = sorted(card_list[k+1:2*k+1])
+  	face_up_ind = card_list[2*k]
+  yours = []
+  theirs = []
+  face_up = []
+  for i in range(0, k+1):
+  	yours.append(deck[yours_ind[i]])
+  print yours
+  for j in range(0, k+1):
+  	theirs.append(deck[theirs_ind[j]])
+  print theirs
   
   #not quite working yet
 
