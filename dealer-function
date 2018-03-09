@@ -4,11 +4,12 @@ suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
 faces = ["J", "Q", "K", "A"]
 
 for s in range(4): #iterate over suits
-	for i in range(2, 11):
-  		deck.append("%s %s" %(str(i), suits[s]))
+  for i in range(2, 10):
+    deck.append("%s  %s" %(str(i), suits[s]))
+  deck.append("10 %s" %(suits[s]))
   #generates number cards
-	for i in range(4):
-  		deck.append("%s %s" %(faces[i], suits[s]))
+  for i in range(4):
+    deck.append("%s  %s" %(faces[i], suits[s]))
 	#generates face cards
 print deck #optional
 
@@ -20,25 +21,47 @@ print deck #optional
 yours = []
 theirs = []
 face_up = []
+trump = []
+
 def draw(k):
   if k > 6:
     print "Error: draw at most six cards"
   elif k < 1:
     print "Error: draw at least one card"
   else:
-  	card_list = random.sample(range(0,52), 2*k+1)
-  	yours_ind = sorted(card_list[0:k])
-  	theirs_ind = sorted(card_list[k:2*k])
-  	face_up_ind = card_list[2*k]
+    card_list = random.sample(range(0,52), 2*k+1)
+    yours_ind = sorted(card_list[0:k])
+    theirs_ind = sorted(card_list[k:2*k])
+    face_up_ind = card_list[2*k]
     #optional:
   	#print card_list
-  	for i in range(0, k):
+    for i in range(0, k):
   		yours.append(deck[yours_ind[i]])
-  	print "your hand: %s" %(yours)
-  	for i in range(0, k):
+    print "your hand: %s" %(yours)
+    for i in range(0, k):
   		theirs.append(deck[theirs_ind[i]])
-  	print "face up: %s" %(deck[face_up_ind])
-  	return theirs
+    print "face up: %s" %(deck[face_up_ind])
+    face_up.append(deck[face_up_ind])
+    #get trump
+    up_s = str(face_up[0])
+    trump.append(str(up_s[3:]))
+    print trump
+    trump_ind = 0
+    if trump[0] == "Spades":    
+      trump_ind += 1
+    elif trump[0] == "Hearts":
+      trump_ind += 2
+    elif trump[0] == "Diamonds":
+      trump_ind += 3
+    elif trump[0] == "Clubs":
+      trump_ind += 4
+    else:
+      print "Error, no trump found"
+    return trump_ind
+      
+  
 
 draw(2)
 #print theirs
+print trump
+print trump_ind
