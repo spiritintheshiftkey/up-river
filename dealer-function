@@ -45,23 +45,11 @@ def draw(k):
     #get trump
     up_s = str(face_up[0])
     trump.append(str(up_s[3:]))
-    print trump
-    trump_ind = 0
-    if trump[0] == "Spades":    
-      trump_ind += 1
-    elif trump[0] == "Hearts":
-      trump_ind += 2
-    elif trump[0] == "Diamonds":
-      trump_ind += 3
-    elif trump[0] == "Clubs":
-      trump_ind += 4
-    else:
-      print "Error, no trump found"
-    return trump_ind
+    #optional:
+    #print trump
       
   
 
 draw(2)
 #print theirs
-print trump
-print trump_ind
+print trump[0]
