@@ -1,18 +1,22 @@
 #code for playing cards
 #if you play first:
 
+your_card = []
+
 def you_play():
   print "your current hand:"
   # display current hand, numbered
-  for n in len(yours):
-    print "%: %" %(n, yours[n])
-  card_num = raw_input("enter the number beside your chosen card")
-  if card_num < 0 or card_num > len(yours):
+  for i in range(0, len(yours)):
+    print "%s : %s" %(i, yours[i])
+  card_num = int(raw_input("enter the number beside your chosen card"))
+  if card_num not in range(0, len(yours)):
     print "Error: choose one of the numbers displayed"
   else:
     print "you played: %s" %(yours[card_num])
-    your_card = yours.pop(card_num)
-    
+    your_card.append(yours.pop(card_num))
     
 you_play()
+
+#optional: check outputs of you_play
 print your_card
+print yours
